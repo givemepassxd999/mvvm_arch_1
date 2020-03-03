@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         infoRepository = InfoRepository()
         infoFactory = InfoFactory(infoRepository)
-        infoViewModel = ViewModelProviders.of(this, infoFactory).get(InfoViewModel::class.java)
+        infoViewModel = ViewModelProvider(this, infoFactory).get(InfoViewModel::class.java)
 
         get_info.setOnClickListener {
             val dialog = ProgressDialog.show(
